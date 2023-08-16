@@ -42,6 +42,8 @@
 #include "Iop_Vblank.h"
 #include "Iop_Dynamic.h"
 
+#include "namco_sys147/Iop_NamcoSys147.h"
+
 #include "Ioman_ScopedFile.h"
 
 #define LOGNAME "iop_bios"
@@ -262,6 +264,9 @@ void CIopBios::Reset(uint32 ramSize, const Iop::SifManPtr& sifMan)
 	{
 		m_powerOff = std::make_shared<Iop::CPowerOff>(*m_sifMan);
 		RegisterModule(m_powerOff);
+	}
+	{
+		RegisterModule(std::make_shared<Iop::Namco::CSys147>(*m_sifMan));
 	}
 	RegisterModule(std::make_shared<Iop::CIomanX>(*m_ioman));
 	//RegisterModule(std::make_shared<Iop::CNaplink>(*m_sifMan, *m_ioman));
