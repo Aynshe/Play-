@@ -50,7 +50,7 @@ public:
 	void Resume() override;
 	void Pause() override;
 	void PauseAsync();
-	void Reset(uint32 = PS2::EE_BASE_RAM_SIZE, uint32 = PS2::IOP_BASE_RAM_SIZE);
+	void Reset(uint32 = PS2::EE_EXT_RAM_SIZE, uint32 = PS2::IOP_BASE_RAM_SIZE);
 
 	STATUS GetStatus() const override;
 

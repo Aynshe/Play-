@@ -468,7 +468,10 @@ void CPS2VM::ResetVM()
 		iopOs->GetIoman()->RegisterDevice("cdrom", Iop::Ioman::DevicePtr(new Iop::Ioman::COpticalMediaDevice(m_cdrom0)));
 		iopOs->GetIoman()->RegisterDevice("cdrom0", Iop::Ioman::DevicePtr(new Iop::Ioman::COpticalMediaDevice(m_cdrom0)));
 		iopOs->GetIoman()->RegisterDevice("hdd0", std::make_shared<Iop::Ioman::CHardDiskDevice>());
-		iopOs->GetIoman()->RegisterDevice("atfile0", std::make_shared<Iop::Namco::CNamcoNANDDevice>( std::make_unique<Framework::CStdStream>("/Users/jpd002/Downloads/kp012b_k9k8g08u0b.ic31", "rb")));
+		iopOs->GetIoman()->RegisterDevice("atfile0", std::make_shared<Iop::Namco::CNamcoNANDDevice>( std::make_unique<Framework::CStdStream>("/Users/jpd002/Downloads/kp012b_k9k8g08u0b.ic31", "rb"), 0x6000));
+		iopOs->GetIoman()->RegisterDevice("atfile3", std::make_shared<Iop::Namco::CNamcoNANDDevice>( std::make_unique<Framework::CStdStream>("/Users/jpd002/Downloads/kp012b_k9k8g08u0b.ic31", "rb"), 0x30000));
+		iopOs->GetIoman()->RegisterDevice("atfile4", std::make_shared<Iop::Namco::CNamcoNANDDevice>( std::make_unique<Framework::CStdStream>("/Users/jpd002/Downloads/kp012b_k9k8g08u0b.ic31", "rb"), 0x40000));
+		iopOs->GetIoman()->RegisterDevice("atfile5", std::make_shared<Iop::Namco::CNamcoNANDDevice>( std::make_unique<Framework::CStdStream>("/Users/jpd002/Downloads/kp012b_k9k8g08u0b.ic31", "rb"), 0x50000));
 
 		iopOs->GetLoadcore()->SetLoadExecutableHandler(std::bind(&CPS2OS::LoadExecutable, m_ee->m_os, std::placeholders::_1, std::placeholders::_2));
 	}
