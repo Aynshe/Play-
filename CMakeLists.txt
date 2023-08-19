@@ -88,6 +88,8 @@ if(BUILD_TESTS)
 	add_subdirectory(tools/VuTest/)
 endif()
 
+add_subdirectory(tools/NamcoSys147NANDTools)
+
 if(BUILD_PSFPLAYER)
 	add_subdirectory(tools/PsfPlayer)
 endif(BUILD_PSFPLAYER)
